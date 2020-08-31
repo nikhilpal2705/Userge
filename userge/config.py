@@ -42,6 +42,7 @@ class Config:
     FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR")
     UNFINISHED_PROGRESS_STR = os.environ.get("UNFINISHED_PROGRESS_STR")
     CUSTOM_PACK_NAME = os.environ.get("CUSTOM_PACK_NAME")
+    CUSTOM_PACK_SHORT_NAME = os.environ.get("CUSTOM_PACK_SHORT_NAME")
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO")
     UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE")
     SCREENSHOT_API = os.environ.get("SCREENSHOT_API", None)

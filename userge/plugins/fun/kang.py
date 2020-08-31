@@ -82,7 +82,8 @@ async def kang_(message: Message):
             u_name = "@" + u_name
         else:
             u_name = user.first_name or user.id
-        packname = f"a{user.id}_by_userge_{pack}"
+        custom_packname = Config.CUSTOM_PACK_SHORT_NAME or f"a{user.id}"
+        packname = f"{custom_packname}_Vol{pack}"
         custom_packnick = Config.CUSTOM_PACK_NAME or f"{u_name}'s kang pack"
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = '/newpack'
@@ -109,7 +110,7 @@ async def kang_(message: Message):
                 limit = "50" if is_anim else "120"
                 while limit in msg.text:
                     pack += 1
-                    packname = f"a{user.id}_by_userge_{pack}"
+                    packname = f"{custom_packname}_Vol{pack}"
                     packnick = f"{custom_packnick} Vol.{pack}"
                     await message.edit("`Switching to Pack " + str(pack) +
                                        " due to insufficient space`")
@@ -176,7 +177,7 @@ async def kang_(message: Message):
                 await conv.get_response(mark_read=True)
                 await conv.send_message(packname)
                 await conv.get_response(mark_read=True)
-        await message.edit(f"**Sticker** [kanged](t.me/addstickers/{packname})!")
+        await message.edit(f"**Sticker** [kanged](t.me/addstickers/{packname})!", del_in=5)
         if os.path.exists(str(photo)):
             os.remove(photo)
 
